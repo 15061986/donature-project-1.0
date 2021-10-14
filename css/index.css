@@ -15,9 +15,17 @@
     background-size: cover;
     
 }
-.container{
-    background-color: rgb(12, 36, 82);    
-    
+
+.partners {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo{
+    width: 100%; 
+    max-width: 140px; 
+    height: auto;
 }
 
 
@@ -26,8 +34,6 @@
     margin-right: 20%;
 }
 
-/*.contact-message {
-    @include media-breakpoint-up(sm){
+.contact-message {
     height: 100%;
-    }
 }
