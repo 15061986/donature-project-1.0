@@ -1,0 +1,33 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+
+
+
+.page-header {
+    background-color: rgb(15, 12, 12);
+    height: 400px;
+    background-image: url("/images/earth-1756274_1280.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    
+}
+.container{
+    background-color: rgb(12, 36, 82);    
+    
+}
+
+
+.contact {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/*.contact-message {
+    @include media-breakpoint-up(sm){
+    height: 100%;
+    }
+}
