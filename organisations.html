@@ -92,7 +92,8 @@
                             <option value="1">NO</option>
                             <option value="2">YES</option>
                         </select>
-                        <h6 id="descr" style="margin-left:2%; display: none;">CHOOSE DATE RANGE</h6>
+                    
+                        <h6 id="descr" style="margin-left:2%; margin-top: 1%; display: none;">CHOOSE DATE RANGE</h6>
                         <input class="form-control mb-3 mb-sm-0" type="text" name="daterange" id="daterange" value="DATE" style="display: none;" />
                         
                             <script>
@@ -112,6 +113,7 @@
                                     $("#descr").show();
                                     $("#daterange").show();
                                }else{
+                                    $("#descr").hide();
                                     $("#daterange").hide();
                                      }
                             });
