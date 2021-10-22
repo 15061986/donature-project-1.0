@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate your money</title>
+</head>
+<body>
+    
+    <form>
+        
+        <label for="firstname">Name/s on card</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your name/s or initials" required>
+        
+        <br><br>
+
+        <label for="lastname">Surname on card</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name" required>
+        
+        <br><br>
+
+        <label for="cardnumber">Card number</label>
+        <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter the 16-digit number on the front of your card" required>
+
+        <br><br>
+
+        <label for="expirationdate">Expiration date</label>
+        <input type="month" id="month" name="month" placeholder="MM/YY" required>
+
+        <br><br>
+
+        <label for="password">CVV</label>
+        <input type="password" id="password" name="password" placeholder="Enter the 3-digit number at the back of your card" required>
+
+        <br><br>
+
+        <label for="question">How much would you like to donate?</label>
+        <select name="question" id="question">
+            <option value="q1">$1</option>
+            <option value="q2">$10</option>
+            <option value="q3">$100</option>
+            <option value="q4">$1000</option>
+            <option value="q5">$10 000</option>
+        </select>
+        
+        <br>
+
+        <input type="radio" name="frequency" value="onceoff" id="option-1">
+        <label for="option-1">Once-off</label>
+        <input type="radio" name="frequency" value="recurring" id="option-2">
+        <label for="option-2">Recurring (monthly)</label>
+
+        <br><br>
+
+        <label for="answer">Reference number</label> <br>
+        <input type="text" id="answer" name="answer" placeholder="Enter the 4-digit reference no. for your chosen organisation" required>
+    
+        <br><br>
+    
+        <input type="submit" value="Submit">
+    
+    </form>
+    <br>
+    <a href="dons-and-vols.html"><< Return</a>
+
+</body>
+</html>
