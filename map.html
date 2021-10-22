@@ -69,7 +69,7 @@
 
         .menu-ui a.active:hover {
             background:#3887BE;
-        color:#FFF;
+            color:#FFF;
         }
 
         .leaflet-control-layers-expanded {
@@ -86,24 +86,68 @@
         }
 
         /* configure the countries DropDownList */
-        #layer-pick {
-            background:#fff;
-            position:absolute;
-            top:10px; right:160px;
-            z-index:2;
+        .dropdown_button {
+            background: #3887BE;
+            position: absolute;
             border-radius:3px;
-            width:170px;
+            width:150px;
+            z-index: 2;
             border:1px solid rgba(0,0,0,0.4);
             font-size: 13px;
-            color:#404040;
-            display:block;
+            color:#FFF;
             margin:0;padding:0;
             padding:10px;
             text-decoration:none;
             border-bottom:1px solid rgba(0,0,0,0.25);
-            text-align:left;
+            text-align:center;
             font-family:arial;
         }
+
+        .dropdown_button:hover, .dropdown_button:focus {
+            background-color: #3887BE;
+        }
+
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+            z-index: 2;
+            top:10px; left:1210px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            z-index:2; 
+            border:1px solid rgba(0,0,0,0.4);
+            font-size: 13px;
+            color:#FFF;
+            margin:0;padding:0px;
+            text-decoration:none;
+            text-align:center;
+            font-family:arial;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border:0px solid rgba(0,0,0,0.4);
+            font-size: 13px;
+            color:#404040;
+            margin:0px;padding:10px;
+            text-decoration:none;
+            border-bottom:1px solid rgba(0,0,0,0.25);
+            text-align:center;
+            font-family:arial;
+        }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .show {display:block;}
+
     </style>
 
   </head>
@@ -113,21 +157,22 @@
     <h1>World Map</h1>
     <div class="map-wrapper">
 
-        <!-- Pulldown List-->
-        <select id="layer-pick">
-            <option> - Select your country - </option>
-            <option>Show all countries</option>
-            <option>Brasil</option>  
-            <option id="Germany">Germany</option>
-            <option>Indonesia</option>
-            <option>South Africa</option>      
-        </select>
-    
+        <!-- DropDown Menu-->
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropdown_button" id="button"> - Select your country - </button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href='#' id="Show_All">Show all countries</a>
+            <a href='#' id='Brasil'>Brasil</a>  
+            <a href='#' id='Germany'>Germany</a>
+            <a href='#' id='Indonesia'>Indonesia</a>
+            <a href='#' id='South Africa'>South Africa</a>      
+        </div>
+    </div>
     <div id="map"></div>
 
         <!-- Buttons-->
         <nav id='menu-ui' class='menu-ui'>
-            <a href='#' class='active' id='filter-select'> - Select your cause- </a>
+            <a href='#' class='active' id='filter-select'> - Select your cause - </a>
             <a href='#' id='filter-all'> All of them </a>
             <a href='#' id='filter-animals'> Animals </a>
             <a href='#' id='filter-education'> Education</a>
@@ -154,32 +199,32 @@
         // create our markers
 
         //here all the markers except detailed one for the project follow
-        var marker1 = L.marker([50.27264, 7.26469], {
+        var marker1 = L.marker([47.73552, 12.45719], {
             title: 'Marker1',
             alt: '...',
         }).bindPopup('Marker1')
 
-        var marker2 = L.marker([51.27264, 6.26469], {
+        var marker2 = L.marker([53.89889, 9.13389], {
             title: 'Marker2',
             alt: '...',
         }).bindPopup('Marker2')
 
-        var marker3 = L.marker([51.27264, 6.26469], {
+        var marker3 = L.marker([50.60821, 10.81234], {
             title: 'Marker3',
             alt: '...',
         }).bindPopup('Marker3')
 
-        var marker4 = L.marker([51.27264, 6.26469], {
+        var marker4 = L.marker([51.50194, 6.75694], {
             title: 'Marker4',
             alt: '...',
         }).bindPopup('Marker4')
 
         //this is the detailed marker for the project
-        var marker5 = L.marker([52.27264, 6.26469], {
-            title: 'Marker5',
-            alt: '...',
-        }).bindPopup('Marker5')
-
+        var marker5 = L.marker([52.83088, 12.07552], {
+            title: 'NABU',
+            alt: 'NABU',
+        }).bindPopup('<b> Restoration project at the river Havel </b> <br> <br>The lower Havel river valley is the largest and most important non-coastal wetlands area in Central Europe. The area suffered serious ecological degradation especially in the 20th century due to stream corridor construction projects. <br> <br> <a href="..."> Show me more </a>')
+        
         //myLayerGroup1 contains all German projects we include in our map
         var myLayerGroup1 = L.layerGroup([marker1, marker2, marker3, marker4, marker5]);
         
@@ -212,6 +257,38 @@
         this.className = 'active';
         map.removeLayer(myLayerGroup1)
         map.addLayer(myLayerGroup2)
+    };
+
+    //defining how the DropDown works
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropdown_button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
+
+    var Germany = document.getElementById('Germany');
+    
+    Germany.onclick = function() {
+        map.flyTo([50.110924, 8.682127], 6);
+        document.getElementById("button").innerHTML= "- Germany -";
+    };
+
+    var Show_All = document.getElementById('Show_All');
+    
+    Show_All.onclick = function() {
+        map.flyTo([0, 0], 3);
+        document.getElementById("button").innerHTML= "- Show all countries -";
     };
 
 //important separator here
@@ -269,8 +346,6 @@
             map.fitBounds(e.target.getBounds());
         }
 
-
-    
     </script>
 
   </body>
