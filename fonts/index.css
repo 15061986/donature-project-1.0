@@ -1,0 +1,52 @@
+
+.page-header {
+    background-color: rgb(15, 12, 12);
+    height: 400px;
+    background-image: url("/images/earth-1756274_1280.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;    
+}
+
+.partners {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+.logo{
+    width: 100%; 
+    max-width: 140px; 
+    height: auto;
+}
+
+.contact {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.contact-message {
+    height: 100%;
+}
+
+.mybutton {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 2px solid #8e8e8e;
+    color: lightseagreen;
+    padding: 12px 48px;
+}
+
+.mybutton:hover {
+    background-color: orange;
+    color: #f6f5f5;
+}
+
+.mybutton:active {
+    position:relative;
+    top: 2px;
+}
