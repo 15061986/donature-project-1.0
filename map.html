@@ -28,64 +28,14 @@
             z-index: 1;
         }
 
-        /* configure the causes buttons */
-        .menu-ui {
-    	    background:#fff;
-            position:absolute;
-            top:10px;right:10px;
-            z-index:2;
-            border-radius:3px;
-            width:140px;
-            border:1px solid rgba(0,0,0,0.4);
-        }
-
-        .menu-ui a {
-            font-size:13px;
-            color:#404040;
-            display:block;
-            margin:0;padding:0;
-            padding:10px;
-            text-decoration:none;
-            border-bottom:1px solid rgba(0,0,0,0.25);
-            text-align:center;
-            font-family: arial;
-        }
-
-        .menu-ui a:first-child {
-            border-radius:3px 3px 0 0;
-        }
-    
-        .menu-ui a:last-child {
-            border:none;
-            border-radius:0 0 3px 3px;
-        }
-    
-        .menu-ui a:hover {
-            background:#f8f8f8;
-            color:#404040;
-        }
-
-        .menu-ui a.active,
-
-        .menu-ui a.active:hover {
-            background:#3887BE;
-            color:#FFF;
-        }
-
-        .leaflet-control-layers-expanded {
-			max-height: 500px;
-			min-width: 150px;
-			overflow: auto;
-		}
-
-        /* configure the div around map, DropDown and Buttons */        
+        /* configure the div around map and DropDown menus */        
         .map-wrapper {
             position: relative;
             height: 100%;
             width: 100%;
         }
 
-        /* configure the countries DropDownList */
+        /* configure the countries DropDown menu */
         .dropdown_button {
             background: #3887BE;
             position: absolute;
@@ -111,7 +61,7 @@
             position: absolute;
             display: inline-block;
             z-index: 2;
-            top:10px; left:1210px;
+            top:10px; left:1200px;
         }
 
         .dropdown-content {
@@ -144,9 +94,77 @@
             font-family:arial;
         }
 
-    .dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown-content a:hover {background-color: #f1f1f1}
 
-    .show {display:block;}
+        .show {
+            display: block;
+        }
+
+        /* configure the causes DropDown menu */
+
+        .button_cause {
+            background: #3887BE;
+            position: absolute;
+            border-radius:3px;
+            width:150px;
+            z-index: 2;
+            border:1px solid rgba(0,0,0,0.4);
+            font-size: 13px;
+            color:#FFF;
+            margin:0;padding:0;
+            padding:10px;
+            text-decoration:none;
+            border-bottom:1px solid rgba(0,0,0,0.25);
+            text-align:center;
+            font-family:arial;
+        }
+
+        .button_cause:hover, .button_cause:focus {
+            background-color: #3887BE;
+        }
+
+        .dropdown_causes {
+            position: absolute;
+            display: inline-block;
+            z-index: 2;
+            top:10px; left:1360px;
+        }
+
+        .content_cause {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            z-index:2; 
+            border:1px solid rgba(0,0,0,0.4);
+            font-size: 13px;
+            color:#FFF;
+            margin:0;padding:0px;
+            text-decoration:none;
+            text-align:center;
+            font-family:arial;
+        }
+
+        .content_cause a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border:0px solid rgba(0,0,0,0.4);
+            font-size: 13px;
+            color:#404040;
+            margin:0px;padding:10px;
+            text-decoration:none;
+            border-bottom:1px solid rgba(0,0,0,0.25);
+            text-align:center;
+            font-family:arial;
+        }
+
+    .content_cause a:hover {background-color: #f1f1f1}
+
+    .cause {
+        display:block;
+    }
 
     </style>
 
@@ -157,7 +175,7 @@
     <h1>World Map</h1>
     <div class="map-wrapper">
 
-        <!-- DropDown Menu-->
+        <!-- DropDown Menu Countries-->
         <div class="dropdown">
             <button onclick="myFunction()" class="dropdown_button" id="button"> - Select your country - </button>
         <div id="myDropdown" class="dropdown-content">
@@ -168,20 +186,22 @@
             <a href='#' id='South Africa'>South Africa</a>      
         </div>
     </div>
+    
     <div id="map"></div>
 
-        <!-- Buttons-->
-        <nav id='menu-ui' class='menu-ui'>
-            <a href='#' class='active' id='filter-select'> - Select your cause - </a>
-            <a href='#' id='filter-all'> All of them </a>
-            <a href='#' id='filter-animals'> Animals </a>
-            <a href='#' id='filter-education'> Education</a>
-            <a href='#' id='filter-food_security'> Food Security</a>
-            <a href='#' id='filter-forest'> Forests </a>
-            <a href='#' id='filter-gender_equality'> Gender Equality</a>
-            <a href='#' id='filter-water'> Water </a>
-
-    </nav>
+        <!-- DropDown Menu Causes-->
+        <div class="dropdown_causes">
+            <button onclick="myFunction1()" class="button_cause" id="buttonCause"> - Select your cause - </button>
+        <div id="DropdownCause" class="content_cause">
+            <a href='#' id="all"> All of them</a>
+            <a href='#' id='animals'> Animals </a>  
+            <a href='#' id='education'> Education </a>
+            <a href='#' id='food_security'> Food Security </a>
+            <a href='#' id='forests'> Forests </a>
+            <a href='#' id='gender_equality'> Gender Equality </a>
+            <a href='#' id='water'> Water </a>        
+        </div>
+    </div>
 
     </div>
 
@@ -223,7 +243,7 @@
         var marker5 = L.marker([52.83088, 12.07552], {
             title: 'NABU',
             alt: 'NABU',
-        }).bindPopup('<b> Restoration project at the river Havel </b> <br> <br>The lower Havel river valley is the largest and most important non-coastal wetlands area in Central Europe. The area suffered serious ecological degradation especially in the 20th century due to stream corridor construction projects. <br> <br> <a href="..."> Show me more </a>')
+        }).bindPopup('<b> Restoration project at the river Havel </b> <br> <br>The lower Havel river valley is the largest and most important non-coastal wetlands area in Central Europe. The area suffered serious ecological degradation especially in the 20th century due to stream corridor construction projects. <br> <br> <a href="..."> Show me more </a> <br> <br> Reference Nr. <em> #1234 </em>')
         
         //myLayerGroup1 contains all German projects we include in our map
         var myLayerGroup1 = L.layerGroup([marker1, marker2, marker3, marker4, marker5]);
@@ -231,35 +251,7 @@
         //myLayerGroup2 contains only Marker Nr. 5, the one we want to focus on
         var myLayerGroup2 = L.layerGroup([marker5]);
 
-    //defining how the Buttons work
-    var all = document.getElementById('filter-all');
-    var select = document.getElementById('filter-select');
-    var water = document.getElementById('filter-water');
-
-    all.onclick = function(e) {
-        select.className = '';
-        water.className = '';
-        this.className = 'active';
-        map.addLayer(myLayerGroup1)
-    };
-
-    select.onclick = function() {
-        all.className = '';
-        water.className = '';
-        this.className = 'active';
-        map.removeLayer(myLayerGroup1)
-        map.removeLayer(myLayerGroup2)
-    };
-
-    water.onclick = function() {
-        all.className = '';
-        select.className= '';
-        this.className = 'active';
-        map.removeLayer(myLayerGroup1)
-        map.addLayer(myLayerGroup2)
-    };
-
-    //defining how the DropDown works
+    //defining how the DropDown Countries works
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
@@ -270,10 +262,11 @@
         var i;
         for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
+        if (openDropdown.classList.contains('show') && !event.target.classList.contains('show')) {
             openDropdown.classList.remove('show');
         }
         }
+        event.target.classList.toggle("show");
     }
     }
 
@@ -289,6 +282,124 @@
     Show_All.onclick = function() {
         map.flyTo([0, 0], 3);
         document.getElementById("button").innerHTML= "- Show all countries -";
+    };
+
+    //defining how the DropDown Causes works
+    
+    function myFunction1() {
+        document.getElementById("DropdownCause").classList.toggle("cause");
+    }
+
+    window.addEventListener ("click", function(event) {
+    if (!event.target.matches('.button_cause')) {
+        var dropdowns = document.getElementsByClassName("content_cause");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var Dropdown = dropdowns[i];
+        if (Dropdown.classList.contains("cause") && !event.target.classList.contains('cause')) {
+            Dropdown.classList.remove("cause");
+        }
+        }
+        event.target.classList.toggle("cause");
+    }
+    });
+
+    var all = document.getElementById('all');
+    var animals = document.getElementById('animals');
+    var education = document.getElementById('education');
+    var food_security = document.getElementById('food_security');
+    var forests = document.getElementById('forests');
+    var gender_equality = document.getElementById('gender_equality');
+    var water = document.getElementById('water');
+
+    all.onclick = function(e) {
+        animals.className = '';
+        education.className = '';
+        food_security.className = '';
+        forests.className = '';
+        gender_equality.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.addLayer(myLayerGroup1);
+        document.getElementById("buttonCause").innerHTML= "- All -";
+    };
+
+    animals.onclick = function() {
+        all.className = '';
+        education.className = '';
+        food_security.className = '';
+        forests.className = '';
+        gender_equality.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.removeLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Animals -";
+    };
+
+    education.onclick = function() {
+        all.className = '';
+        animals.className = '';
+        food_security.className = '';
+        forests.className = '';
+        gender_equality.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.removeLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Education -";
+    };
+
+    food_security.onclick = function() {
+        all.className = '';
+        animals.className = '';
+        education.className = '';
+        forests.className = '';
+        gender_equality.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.removeLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Food Security -";
+    };
+
+    forests.onclick = function() {
+        all.className = '';
+        animals.className = '';
+        education.className = '';
+        food_security.className = '';
+        gender_equality.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.removeLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Forests -";
+    };
+
+    gender_equality.onclick = function() {
+        all.className = '';
+        animals.className = '';
+        education.className = '';
+        food_security.className = '';
+        forests.className = '';
+        water.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.removeLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Gender Equality -";
+    };
+
+    water.onclick = function() {
+        all.className = '';
+        animals.className = '';
+        education.className = '';
+        food_security.className = '';
+        forests.className = '';
+        gender_equality.className = '';
+        this.className = 'active';
+        map.removeLayer(myLayerGroup1);
+        map.addLayer(myLayerGroup2);
+        document.getElementById("buttonCause").innerHTML= "- Water -";
     };
 
 //important separator here
