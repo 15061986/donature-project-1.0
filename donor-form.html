@@ -2,67 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate your money</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!--Icons-->
+    <script src="https://kit.fontawesome.com/98b2d1a3b8.js" crossorigin="anonymous"></script>
+    <title>Donature</title>
 </head>
 <body>
-    
-    <form>
+    <header class="page-header">
         
-        <label for="firstname">Name/s on card</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Your name/s or initials" required>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="/logos/logo_transparent2.png" style="width: 20%; height:auto;">
+                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="organisations.html">FOR&nbsp;ORGANISATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dons-and-vols.html">FOR&nbsp;DONORS&nbsp;AND&nbsp;VOLUNTEERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="partners.html">OUR&nbsp;PARTNERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
         
-        <br><br>
-
-        <label for="lastname">Surname on card</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Your last name" required>
+    </header>
+    <!--donation form-->
+    <section class="contact">
+        <div>
+            <h5 style="text-align: center; margin-top: 20px; margin-bottom: 20px; font-family:Arial, Helvetica, sans-serif;">Please complete the form below.</h5>
         
-        <br><br>
+            <form>
+                <div class="row" style="margin-right: 30%; margin-left: 30%;">
+                    <div class="col-12 col-sm-12">
+                        <label for="firstname">Name/s on card</label>
+                        <input class="form-control mb-3 mb-sm-0" type="text" id="firstname" name="firstname" placeholder="Your name/s or initials" required>
+                        <br>
+                        <label for="lastname">Surname on card</label>
+                        <input class="form-control mb-3 mb-sm-0" type="text" id="lastname" name="lastname" placeholder="Your last name" required>
+                        <br>
+                        <label for="cardnumber">Card number</label>
+                        <input class="form-control mb-3 mb-sm-0" type="text" id="cardnumber" name="cardnumber" placeholder="Enter the 16-digit number on the front of your card" required>
+                        <br>
+                        <label for="expirationdate">Expiration date</label>
+                        <input class="form-control mb-3 mb-sm-0" type="month" id="month" name="month" placeholder="MM/YY" required>
+                        <br>
+                        <label for="password">CVV</label>
+                        <input class="form-control mb-3 mb-sm-0" type="password" id="password" name="password" placeholder="Enter the 3-digit number at the back of your card" required>
+                        <br>
+                        <label for="question">How much would you like to donate?</label>
+                        <select class="form-control mb-3 mb-sm-0" name="question" id="question">
+                            <option value="q1">$1</option>
+                            <option value="q2">$10</option>
+                            <option value="q3">$100</option>
+                            <option value="q4">$1000</option>
+                            <option value="q5">$10 000</option>
+                        </select>
+                        
+                        <br>
 
-        <label for="cardnumber">Card number</label>
-        <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter the 16-digit number on the front of your card" required>
+                        <input type="radio" name="frequency" value="onceoff" id="option-1">
+                        <label for="option-1">Once-off</label>
+                        <input type="radio" name="frequency" value="recurring" id="option-2">
+                        <label for="option-2">Recurring (monthly)</label>
 
-        <br><br>
+                        <br><br>
 
-        <label for="expirationdate">Expiration date</label>
-        <input type="month" id="month" name="month" placeholder="MM/YY" required>
+                        <label for="answer">Reference number</label> <br>
+                        <input class="form-control mb-3 mb-sm-0" type="text" id="answer" name="answer" placeholder="Enter the 4-digit reference no. for your chosen organisation" required>
+                    
+                        <br>
+                    
+                        <div class="text-center">
+                            <button id="return" type="button" class=" mt-3  btn btn-dark"><a href="/dons-and-vols.html"><< Return</a></button>
+                            <button id="mybutton" type="button" class=" mt-3  btn btn-dark">Submit</button>
+                        </div>
+                </div>    
+            </form>
+            
+        </div>
+    </section>
+    <script>
+        let donors =[];
+        const addNewDon = function(ev){
+            ev.preventDefault(); //to stop the form submitting
+            let donor = {
+                id: Date.now(),
+                firstname: document.getElementById("firstname").value,
+                lastname: document.getElementById("lastname").value,
+                cardnumber: document.getElementById("cardnumber").value,
+                expirationdate: document.getElementById("month").value,
+                cvv: document.getElementById("password").value,
+                question: document.getElementById("question").value,
+                reference: document.getElementById("answer").value
+            }
+            donors.push(donor);
+            document.forms[0].reset(); //to clear the form for the next entries
+    
+            //for display purposes only
+            console.log("New donor was added", {donors});
 
-        <br><br>
-
-        <label for="password">CVV</label>
-        <input type="password" id="password" name="password" placeholder="Enter the 3-digit number at the back of your card" required>
-
-        <br><br>
-
-        <label for="question">How much would you like to donate?</label>
-        <select name="question" id="question">
-            <option value="q1">$1</option>
-            <option value="q2">$10</option>
-            <option value="q3">$100</option>
-            <option value="q4">$1000</option>
-            <option value="q5">$10 000</option>
-        </select>
+            alert("Your form has been submitted successfully.");
+        }   
+            //saving to local storage
+    
+            document.addEventListener("DOMContentLoaded", function(){
+                document.getElementById("mybutton").addEventListener("click",addNewDon);
+    });
         
-        <br>
-
-        <input type="radio" name="frequency" value="onceoff" id="option-1">
-        <label for="option-1">Once-off</label>
-        <input type="radio" name="frequency" value="recurring" id="option-2">
-        <label for="option-2">Recurring (monthly)</label>
-
-        <br><br>
-
-        <label for="answer">Reference number</label> <br>
-        <input type="text" id="answer" name="answer" placeholder="Enter the 4-digit reference no. for your chosen organisation" required>
-    
-        <br><br>
-    
-        <input type="submit" value="Submit">
-    
-    </form>
-    <br>
-    <a href="dons-and-vols.html"><< Return</a>
-
+    </script>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 my-2 border-top">
+           <p class="col-md-4 mb-0 text-muted">&copy; 2021 DONATURE, All Rights Reserved</p>
+           <div class="text-center">
+            <a onclick="" class="btn btn-social-icon btn-lg btn-facebook text-secondary"><i class="fab fa-facebook"></i></a>
+            <a onclick="" class="btn btn-social-icon btn-lg btn-instagram text-secondary"><i class="fab fa-instagram"></i></a>
+            <a onclick="" class="btn btn-social-icon btn-lg btn-linkedin text-secondary"><i class="fab fa-linkedin"></i></a>
+          </div>
+           <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link px-2 text-muted">Contact</a></li>
+            <li class="nav-item"><a href="terms.html" class="nav-link px-2 text-muted">Terms of Service</a></li>
+           </ul>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script>
 </body>
 </html>
+
+
+
+
