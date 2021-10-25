@@ -180,7 +180,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.html">
-                        <img src="/logos/logo_transparent2.png" style="width: 20%; height:auto;">
+                        <img src="/logos/logo_transparent2.png" style="width: 30%; height:auto;">
                     </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -212,14 +212,14 @@
     </header>
     <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">Welcome to DONATURE!</h5>
-          <p class="card-text">DONATURE is a fundraising platform bringing together nonprofit organisations and social entrepreneurs working to uplift our planet and people. Our expert team puts in the work to find and vet legitimate projects around the world that are in need of financial or voluntary assistance. The frequently updated DONATURE map makes it easy for donors and volunteers to find projects to which they would be willing to donate their time or money. </p>
-          <a href="dons-and-vols.html" class="mybutton">Donate or Volunteer</a>
+          <h2 class="card-title">We are Donature</h2>
+          <p class="card-text" style="margin-left: 70px; margin-right: 70px;"><strong>A fundraising platform for nonprofit organisations and social entrepreneurs working to uplift our planet and people.</strong> <br> Our expert team puts in the work to find and vet legitimate projects around the world that are in need of financial or voluntary assistance. The frequently updated Donature map makes it easy for donors and volunteers to find projects to which they would be willing to donate their time or money. </p>
+          <a style="text-decoration: none" href="dons-and-vols.html" class="mybutton">Donate or Volunteer</a>
         </div>
         <div class="card-footer text-muted">
         </div>
     </div>
-    <h1 style="display:flex; justify-content: center; font-size: x-large; margin: 15px;">Save your time, trust our map.</h1>
+    <h3 style="display:flex; justify-content: center; font-size: x-large; margin: 15px;">Save your time, trust our map.</h3>
     <div class="map-wrapper">
 
         <!-- DropDown Menu Countries-->
@@ -227,7 +227,7 @@
             <button onclick="myFunction()" class="dropdown_button" id="button"> - Select your country - </button>
         <div id="myDropdown" class="dropdown-content">
             <a href='javascript:void(0);' id="Show_All">Show all countries</a>
-            <a href='javascript:void(0);' id='Brasil'>Brasil</a>  
+            <a href='javascript:void(0);' id='Brazil'>Brazil</a>  
             <a href='javascript:void(0);' id='Germany'>Germany</a>
             <a href='javascript:void(0);' id='Indonesia'>Indonesia</a>
             <a href='javascript:void(0);' id='South Africa'>South Africa</a>      
@@ -238,7 +238,7 @@
 
         <!-- DropDown Menu Causes-->
         <div class="dropdown_causes">
-            <button onclick="myFunction1()" class="button_cause" id="buttonCause"> - Select your cause - </button>
+            <button onclick="myFunction1()" class="button_cause" id="buttonCause"> - Select a cause - </button>
         <div id="DropdownCause" class="content_cause">
             <a href='javascript:void(0);' id="all"> All of them</a>
             <a href='javascript:void(0);' id='animals'> Animals </a>  
@@ -290,7 +290,7 @@
         var marker5 = L.marker([52.83088, 12.07552], {
             title: 'NABU',
             alt: 'NABU',
-        }).bindPopup('<b> Restoration project at the river Havel </b> <br> <br>The lower Havel river valley is the largest and most important non-coastal wetlands area in Central Europe. The area suffered serious ecological degradation especially in the 20th century due to stream corridor construction projects. <br> <br> <a href="..."> Show me more </a> <br> <br> Reference No. <em> #1234 </em>')
+        }).bindPopup('<b> Restoration project at the river Havel by <em>NABU</em></b> <br> <br>The lower Havel river valley is the largest and most important non-coastal wetlands area in Central Europe. The area suffered serious ecological degradation especially in the 20th century due to stream corridor construction projects. <br> <br> <a href="nabu-description.html"> Show me more </a>')
         
         //myLayerGroup1 contains all German projects we include in our map
         var myLayerGroup1 = L.layerGroup([marker1, marker2, marker3, marker4, marker5]);
