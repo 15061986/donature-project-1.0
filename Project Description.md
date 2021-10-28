@@ -16,4 +16,7 @@ Donature is the first and only fundraising platform of its kind and magnitude in
 Valeria Schumann<br>
 Michael Keck<br>
 Olwethu Mfeka<br>
-Mona
+Mona Graf
+
+<h3>Additional links</h3>
+Promo video: <a href=https://vimeo.com/639986381> Donature </a>
