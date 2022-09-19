@@ -1,4 +1,4 @@
-Hi #codeathome management team, welcome to <em><strong>Donature</em></strong>!
+The DONATURE project was carried out as part of the TechLabs #codeathome Program (2021)
 
 All packages are included (see head section). No extra plug-ins necessary. 
 
